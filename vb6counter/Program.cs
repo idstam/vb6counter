@@ -19,7 +19,7 @@ namespace vb6counter
             var folders = new DirectoryInfo(rootFolder).GetDirectories("*.*", SearchOption.AllDirectories);
             var stats = new List<CodeFile>();
 
-            foreach (var d in folders)
+            foreach (var d in folders.Where(d => !d.Name.StartsWith(".")))
             {
                 //Check if there's a .git folder here and do a git pull if that is asked for
                 //if (options.GitPull) GitPull(d);
